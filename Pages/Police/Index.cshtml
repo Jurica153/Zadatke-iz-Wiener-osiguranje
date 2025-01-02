@@ -1,0 +1,33 @@
+﻿@page
+@model Zadatak1.Pages.Police.IndexModel
+@{
+}
+
+<br>
+<h2>List of Police</h2>
+<br>
+<a class='btn btn-primary btn-sm' href='/Police/CreatePolice'>New Police</a><br>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Broj police</th>
+            <th>Iznos police</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model.listPolice)
+        {
+            <tr>
+                <td>@i.BrojPolice</td>
+                <td>@i.IznosPolice</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Police/Edit?id=i">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Police/Delete?id=i">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

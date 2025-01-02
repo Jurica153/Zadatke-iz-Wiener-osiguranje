@@ -1,0 +1,52 @@
+﻿@page
+@model Zadatak1.Pages.Partneri.IndexModel
+@{
+    ViewData["Title"] = "Zadatak 1";
+}
+
+<br>
+<h2>List of Partneri</h2>
+<br>
+<a class='btn btn-primary btn-sm' href='/Partneri/Create'>New Partneri</a><br>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Partner Number</th>
+            <th>Croatian PIN</th>
+            <th>Partner Type ID</th>
+            <th>Created At Utc</th>
+            <th>Created By User</th>
+            <th>Is Foreign</th>
+            <th>External Code</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model.listClients)
+        {
+            <tr>
+                <td>@i.id</td>
+                <td>@i.FirstName</td>
+                <td>@i.LastName</td>
+                <td>@i.Address</td>
+                <td>@i.PartnerNumber</td>
+                <td>@i.CroatianPIN</td>
+                <td>@i.PartnerTypeID</td>
+                <td>@i.CreatedAtUtc</td>
+                <td>@i.CreatedByUser</td>
+                <td>@i.IsForeign</td>
+                <td>@i.ExternalCode</td>
+                <td>@i.Gender</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Partneri/Edit?id=@i.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Partneri/Delete?id=@i.id">Delete</a>
+                </td>
+            </tr>        
+        }
+    </tbody>
+</table>
